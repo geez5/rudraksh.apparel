@@ -35,7 +35,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             <div className="lg:col-span-6 relative">
               <img
-                src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&q=80&w=1200"
+                src="https://framerusercontent.com/images/X0GvzMI58bdKA5HXDxypymct4rg.png"
                 alt="Fashion Atelier and Garment Pattern Drafting"
                 className="w-full aspect-[4/5] object-cover shadow-sm"
               />

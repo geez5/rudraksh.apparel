@@ -1,126 +1,242 @@
 import React from 'react'
 import Link from 'next/link'
-import { ArrowUpRight, CheckCircle2, ShieldCheck, Sparkles, Scissors, Layers, Globe, Compass, ArrowRight } from 'lucide-react'
-import { getCategories, getProducts } from '@/lib/products'
-import { ProductCard } from '@/components/products/product-card'
-import { CategoryCard } from '@/components/products/category-card'
+import { ArrowUpRight, ArrowRight } from 'lucide-react'
+import { getCategories } from '@/lib/products'
 
 export const metadata = {
-  title: 'RUDRAKSH — Thoughtfully Crafted Womenswear. Made for the World.',
+  title: 'RUDRAKSH — The art of making',
   description:
-    'Premier Indian womenswear apparel manufacturer, garment exporter, and sourcing partner for international fashion brands, private labels and retailers.',
+    'Women’s apparel manufacturing, export and sourcing, shaped by craftsmanship and contemporary design.',
 }
 
 export default async function HomePage() {
   const categories = await getCategories()
-  const featuredProducts = await getProducts({ featured: true, publicPreviewOnly: true })
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col bg-[#F5F1E9] text-[#35332F] overflow-x-hidden -mt-20 sm:-mt-24">
       {/* ========================================================
-          SECTION 1: HERO
+          THE ART OF MAKING — COVER (HERO SECTION)
       ======================================================== */}
-      <section className="relative min-h-[92vh] flex items-center justify-center bg-[#35332F] text-[#F5F1E9] overflow-hidden -mt-20 sm:-mt-24">
-        {/* Editorial Background Image with Overlay */}
+      <section className="relative min-h-[96vh] flex flex-col justify-between bg-[#35332F] text-[#F5F1E9] overflow-hidden pt-36 pb-12 px-6 sm:px-8 lg:px-12">
+        {/* Cinematic Garment Backdrop */}
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&q=85&w=2000"
-            alt="Editorial Womenswear Collection - Rudraksh"
-            className="w-full h-full object-cover object-center opacity-40 scale-105 transform motion-safe:animate-fade-in"
+            src="https://framerusercontent.com/images/0Z15NAkSrmq92bFNnjOf7OTouws.png"
+            alt="The art of making — Rudraksh"
+            className="w-full h-full object-cover object-center opacity-45 scale-102"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#35332F]/90 via-[#35332F]/70 to-[#35332F]/80" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#35332F]/90 via-[#35332F]/50 to-[#35332F]/60" />
         </div>
 
-        {/* Hero Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-32 text-center flex flex-col items-center">
-          {/* Subtle Tagline */}
-          <div className="inline-flex items-center gap-2 border border-[#D8C7B1]/40 px-4 py-1.5 rounded-full mb-8 backdrop-blur-sm">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#D8C7B1]" />
-            <span className="text-[11px] tracking-[0.25em] uppercase text-[#D8C7B1] font-sans font-medium">
-              B2B Apparel Manufacturing & Export • India
+        {/* Top spacer */}
+        <div className="relative z-10" />
+
+        {/* Cover Editorial Content */}
+        <div className="relative z-10 max-w-7xl mx-auto w-full space-y-6 sm:space-y-8 my-auto">
+          {/* Eyebrow */}
+          <div className="inline-block">
+            <span className="text-xs sm:text-[13px] tracking-[0.25em] uppercase text-[#D8C7B1] font-sans font-medium">
+              INDIAN CRAFT. GLOBAL PERSPECTIVE.
             </span>
           </div>
 
-          {/* Master Heading */}
-          <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-light text-white leading-[1.08] tracking-tight max-w-5xl mb-6 text-balanced">
-            Thoughtfully Crafted Womenswear. <br className="hidden sm:inline" />
-            <span className="italic font-light text-[#D8C7B1]">Made for the World.</span>
+          {/* Master Heading: "The art of" / "making." */}
+          <h1 className="font-serif text-6xl sm:text-8xl md:text-9xl lg:text-[130px] font-normal text-white leading-[0.92] tracking-normal">
+            <span className="block">The art of</span>
+            <span className="block italic text-[#D8C7B1]">making.</span>
           </h1>
 
-          {/* Subtitle */}
-          <p className="max-w-2xl text-base sm:text-lg text-[#F5F1E9]/85 font-sans font-light leading-relaxed mb-10 text-balanced">
-            Partnering with global fashion houses, boutique retailers, and private labels to deliver precision garment development, ethical fabric sourcing, and export-grade production.
+          {/* Cover Introduction */}
+          <p className="max-w-xl text-base sm:text-lg text-[#F5F1E9]/85 font-sans font-light leading-relaxed pt-2">
+            Women’s apparel manufacturing, export and sourcing, shaped by craftsmanship and contemporary design.
           </p>
 
-          {/* CTAs */}
-          <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 w-full sm:w-auto">
-            <Link
-              href="/capabilities"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#D8C7B1] text-[#35332F] px-8 py-4 text-xs font-semibold tracking-[0.2em] uppercase transition-all duration-300 hover:bg-white hover:shadow-lg"
+          {/* CTA Button */}
+          <div className="pt-4">
+            <a
+              href="#beginning"
+              className="inline-flex items-center gap-3 border border-[#A18A73] bg-[#35332F]/40 backdrop-blur-xs text-[#F5F1E9] px-7 py-3.5 text-xs font-semibold tracking-[0.22em] uppercase transition-all duration-300 hover:bg-[#F5F1E9] hover:text-[#35332F] hover:border-[#F5F1E9]"
             >
-              <span>Explore Capabilities</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-            <Link
-              href="/catalogue-request"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-[#F5F1E9]/40 text-[#F5F1E9] px-8 py-4 text-xs font-medium tracking-[0.2em] uppercase transition-all duration-300 hover:bg-white/10 hover:border-white"
-            >
-              <span>Request Digital Catalogue</span>
-              <ArrowUpRight className="w-4 h-4" />
-            </Link>
+              <span>EXPLORE RUDRAKSH</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </a>
+          </div>
+        </div>
+
+        {/* Edition Note Bar matching Framer */}
+        <div className="relative z-10 max-w-7xl mx-auto w-full pt-12 border-t border-white/15 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-[11px] uppercase tracking-[0.22em] text-[#D8C7B1] font-sans">
+          <span>RUDRAKSH / AN EXPLORATION IN CLOTH</span>
+          <span>CRAFTED IN INDIA. CONSIDERED FOR THE WORLD.</span>
+        </div>
+      </section>
+
+      {/* ========================================================
+          01 / A CONSIDERED BEGINNING
+      ======================================================== */}
+      <section id="beginning" className="py-24 sm:py-36 bg-[#F5F1E9] border-b border-[#35332F]/10">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+          {/* Section index kicker */}
+          <div className="mb-8">
+            <span className="text-xs uppercase tracking-[0.25em] text-[#70745C] font-sans font-medium">
+              01 / A CONSIDERED BEGINNING
+            </span>
           </div>
 
-          {/* Hero Credentials Bar */}
-          <div className="mt-16 pt-8 border-t border-white/10 grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-12 text-left">
-            <div>
-              <p className="text-xs uppercase tracking-widest text-[#D8C7B1]">Specialization</p>
-              <p className="font-serif text-lg text-white mt-1">Womenswear & Resort</p>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+            {/* Left Big Headline */}
+            <div className="lg:col-span-5 space-y-6">
+              <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-light text-[#35332F] leading-[1.1]">
+                Every garment begins long before it is worn.
+              </h2>
             </div>
-            <div>
-              <p className="text-xs uppercase tracking-widest text-[#D8C7B1]">Textile Heritage</p>
-              <p className="font-serif text-lg text-white mt-1">Block Print & Natural Fibers</p>
-            </div>
-            <div>
-              <p className="text-xs uppercase tracking-widest text-[#D8C7B1]">Production</p>
-              <p className="font-serif text-lg text-white mt-1">Full Package & Sampling</p>
-            </div>
-            <div>
-              <p className="text-xs uppercase tracking-widest text-[#D8C7B1]">Worldwide Export</p>
-              <p className="font-serif text-lg text-white mt-1">Air & Sea Freight Ready</p>
+
+            {/* Right Story & Image */}
+            <div className="lg:col-span-7 space-y-10">
+              <div className="space-y-6 text-[#5C5A54] font-sans text-base sm:text-lg leading-relaxed">
+                <p className="font-serif text-2xl sm:text-3xl text-[#35332F] italic font-light leading-snug">
+                  It begins with a feeling. A texture. A possibility.
+                </p>
+                <p>
+                  Rudraksh brings Indian textile craftsmanship into conversation with contemporary womenswear. From the first fabric to the final silhouette, we approach making as both a creative practice and a considered partnership.
+                </p>
+                <div className="pt-2">
+                  <Link
+                    href="/about"
+                    className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.2em] uppercase text-[#35332F] border-b border-[#35332F] pb-1 hover:text-[#7A6555] hover:border-[#7A6555] transition-colors"
+                  >
+                    <span>DISCOVER OUR WORLD</span>
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
+              </div>
+
+              {/* Editorial Photograph */}
+              <div className="aspect-[4/3] sm:aspect-[16/10] overflow-hidden bg-[#D8C7B1]/20">
+                <img
+                  src="https://framerusercontent.com/images/X0GvzMI58bdKA5HXDxypymct4rg.png"
+                  alt="A story in cloth"
+                  className="w-full h-full object-cover object-center"
+                />
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* ========================================================
-          SECTION 2: COMPANY INTRODUCTION
+          02 / THE COLLECTION
       ======================================================== */}
-      <section className="py-24 sm:py-32 bg-[#F5F1E9]">
+      <section className="py-24 sm:py-36 bg-[#EAE2D6]/60 border-b border-[#35332F]/10">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            <div className="lg:col-span-5 space-y-6">
-              <span className="text-xs tracking-[0.25em] uppercase text-[#70745C] font-sans font-semibold">
-                About The House of Rudraksh
+          {/* Header */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+            <div className="space-y-3 max-w-xl">
+              <span className="text-xs uppercase tracking-[0.25em] text-[#70745C] font-sans font-medium">
+                02 / THE COLLECTION
               </span>
               <h2 className="font-serif text-3xl sm:text-5xl font-light text-[#35332F] leading-tight">
-                An India-based manufacturing & sourcing alliance for international fashion.
+                A wardrobe of possibilities.
               </h2>
-              <div className="w-16 h-[1.5px] bg-[#A18A73]" />
+            </div>
+            <Link
+              href="/collections"
+              className="inline-flex items-center gap-2 border border-[#A18A73] px-5 py-2.5 text-xs font-semibold tracking-[0.2em] uppercase text-[#35332F] hover:bg-[#35332F] hover:text-white transition-colors shrink-0"
+            >
+              <span>VIEW COLLECTIONS</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+
+          {/* Marquee Ticker */}
+          <div className="py-4 border-y border-[#35332F]/10 mb-16 overflow-hidden whitespace-nowrap text-xs sm:text-sm tracking-[0.25em] uppercase text-[#7A6555] font-sans font-medium">
+            <span>DRESSES / TOPS / CO-ORD SETS / SHIRTS / SKIRTS / BLOCK PRINT / QUILTED JACKETS</span>
+          </div>
+
+          {/* Asymmetric Collection Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {categories.slice(0, 6).map((cat, idx) => (
+              <Link
+                key={cat.id}
+                href={`/collections?category=${cat.slug}`}
+                className="group block space-y-4"
+              >
+                <div className="relative aspect-[3/4] overflow-hidden bg-[#35332F]/5 border border-[#35332F]/10">
+                  <img
+                    src={cat.image_path || 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&q=80&w=800'}
+                    alt={cat.name}
+                    className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                  />
+                  <div className="absolute top-4 left-4 bg-[#F5F1E9]/90 backdrop-blur-xs px-2.5 py-1 text-[10px] tracking-[0.2em] uppercase font-sans font-medium text-[#35332F]">
+                    Chapter 0{idx + 1}
+                  </div>
+                </div>
+
+                <div className="flex items-baseline justify-between pt-1">
+                  <h3 className="font-serif text-2xl text-[#35332F] group-hover:text-[#7A6555] transition-colors font-light">
+                    {cat.name}
+                  </h3>
+                  <span className="text-[11px] tracking-[0.18em] uppercase text-[#7A6555] group-hover:translate-x-1 transition-transform">
+                    View &rarr;
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ========================================================
+          03 / THE LANGUAGE OF CLOTH
+      ======================================================== */}
+      <section className="py-24 sm:py-36 bg-[#F5F1E9] border-b border-[#35332F]/10">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            {/* Left Imagery Mosaic */}
+            <div className="lg:col-span-6 grid grid-cols-2 gap-4">
+              <div className="space-y-4">
+                <div className="aspect-[3/4] overflow-hidden bg-[#D8C7B1]/20">
+                  <img
+                    src="https://framerusercontent.com/images/R4nHwZ5IckVSyOzyvKHubRqgpg.png"
+                    alt="Textile surface texture"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+              <div className="space-y-4 pt-10">
+                <div className="aspect-[3/4] overflow-hidden bg-[#D8C7B1]/20">
+                  <img
+                    src="https://framerusercontent.com/images/fAOiTgdkUZ1vqHW95kWixB2igs.png"
+                    alt="Crafted garment silhouette"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
             </div>
 
-            <div className="lg:col-span-7 space-y-6 text-[#5C5A54] font-sans leading-relaxed text-base sm:text-lg">
-              <p>
-                RUDRAKSH bridges India’s rich textile artisanal legacy with the rigorous standards of modern international apparel brands. We operate as an integrated production partner—not just a factory—collaborating from initial sketch and fabric selection through to precision fit sampling, grading, quality assurance, and export logistics.
+            {/* Right Story */}
+            <div className="lg:col-span-6 space-y-6">
+              <span className="text-xs uppercase tracking-[0.25em] text-[#70745C] font-sans font-medium">
+                03 / THE LANGUAGE OF CLOTH
+              </span>
+              <h2 className="font-serif text-3xl sm:text-5xl font-light text-[#35332F] leading-tight">
+                Some stories are better felt.
+              </h2>
+              <div className="w-16 h-[1px] bg-[#A18A73]" />
+
+              <p className="text-base sm:text-lg text-[#5C5A54] font-sans leading-relaxed">
+                The irregular rhythm of a printed motif. The quiet structure of a quilted surface. The fall of cloth against the body. Material is where our story takes shape.
               </p>
-              <p className="text-base text-[#35332F]/80">
-                Whether you are an established retailer requiring compliant volume manufacturing or an independent fashion label launching capsule collections, our infrastructure delivers bespoke women’s apparel with transparent communication and obsessive attention to detail.
-              </p>
+
+              <div className="py-4 border-t border-[#35332F]/10 text-xs tracking-[0.25em] uppercase text-[#7A6555] font-sans font-medium">
+                TEXTURE / PRINT / STRUCTURE / MOVEMENT
+              </div>
+
               <div className="pt-2">
                 <Link
-                  href="/about"
-                  className="inline-flex items-center gap-2 text-xs font-medium tracking-[0.2em] uppercase text-[#35332F] border-b border-[#35332F] pb-1 hover:text-[#7A6555] hover:border-[#7A6555] transition-colors"
+                  href="/craftsmanship"
+                  className="inline-flex items-center gap-2 border border-[#35332F] px-6 py-3 text-xs font-semibold tracking-[0.2em] uppercase text-[#35332F] hover:bg-[#35332F] hover:text-white transition-colors"
                 >
-                  <span>Read our manufacturing philosophy</span>
+                  <span>Explore Craftsmanship</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
@@ -130,424 +246,196 @@ export default async function HomePage() {
       </section>
 
       {/* ========================================================
-          SECTION 3: PRODUCT CATEGORIES
+          04 / THE ART OF MAKING (CAPABILITIES)
       ======================================================== */}
-      <section className="py-24 bg-[#EFE9DF] border-t border-[#35332F]/10">
+      <section className="py-24 sm:py-36 bg-[#EAE2D6]/40 border-b border-[#35332F]/10">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-            <div className="max-w-xl space-y-3">
-              <span className="text-xs tracking-[0.25em] uppercase text-[#70745C] font-sans font-semibold">
-                Our Taxonomy
-              </span>
-              <h2 className="font-serif text-3xl sm:text-5xl font-light text-[#35332F] leading-tight">
-                Crafted Across Core Silhouettes
-              </h2>
-              <p className="text-sm text-[#5C5A54] font-sans">
-                Explore our primary manufacturing product lines. Block print is both an artisanal category and an available technique across dresses, shirts, and sets.
-              </p>
-            </div>
-            <Link
-              href="/collections"
-              className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.2em] uppercase text-[#35332F] hover:text-[#7A6555] transition-colors shrink-0"
-            >
-              <span>Explore All Collections</span>
-              <ArrowUpRight className="w-4 h-4" />
-            </Link>
-          </div>
-
-          {/* Categories Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {categories.map((cat, idx) => (
-              <CategoryCard key={cat.id} category={cat} index={idx} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ========================================================
-          SECTION 4: MANUFACTURING CAPABILITIES
-      ======================================================== */}
-      <section className="py-24 sm:py-32 bg-[#F5F1E9]">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="text-center max-w-3xl mx-auto space-y-4 mb-20">
-            <span className="text-xs tracking-[0.25em] uppercase text-[#70745C] font-sans font-semibold">
-              End-to-End Execution
+          <div className="space-y-4 max-w-2xl mb-16">
+            <span className="text-xs uppercase tracking-[0.25em] text-[#70745C] font-sans font-medium">
+              04 / THE ART OF MAKING
             </span>
             <h2 className="font-serif text-3xl sm:text-5xl font-light text-[#35332F] leading-tight">
-              Comprehensive Apparel Capabilities
+              From thought to thread.
             </h2>
-            <p className="text-sm sm:text-base text-[#5C5A54] font-sans">
-              From creative sampling to high-precision batch cutting and compliant packaging, we handle each stage with documented protocols.
+            <p className="text-sm sm:text-base text-[#5C5A54] font-sans leading-relaxed pt-1">
+              A considered journey, shaped around your collection. Each stage is a conversation between creative intent and the practical details of making.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Capability 1 */}
-            <div className="p-8 bg-[#FEFCF8] border border-[#35332F]/10 space-y-4 hover:border-[#A18A73] transition-colors">
-              <div className="w-12 h-12 bg-[#F5F1E9] flex items-center justify-center text-[#70745C]">
-                <Scissors className="w-6 h-6" />
+          {/* The 6 Framer Stages */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {[
+              { num: '01 / CONCEPT', desc: 'Begin with the direction, mood and silhouette.' },
+              { num: '02 / SOURCING', desc: 'Explore the materials that bring the idea to life.' },
+              { num: '03 / SAMPLING', desc: 'Refine proportion, construction and finish.' },
+              { num: '04 / PRODUCTION', desc: 'Translate the approved direction into the collection.' },
+              { num: '05 / QUALITY', desc: 'Consider the details, from construction to final presentation.' },
+              { num: '06 / EXPORT', desc: 'Discuss the requirements of your market and delivery.' },
+            ].map((st) => (
+              <div
+                key={st.num}
+                className="bg-[#FEFCF8] p-8 border border-[#35332F]/10 space-y-3 hover:border-[#A18A73] transition-colors"
+              >
+                <span className="text-xs tracking-[0.2em] font-sans font-bold text-[#A18A73] block">
+                  {st.num}
+                </span>
+                <p className="text-sm sm:text-base text-[#35332F] font-sans leading-relaxed">
+                  {st.desc}
+                </p>
               </div>
-              <h3 className="font-serif text-2xl text-[#35332F] font-normal">
-                Sampling & Pattern Making
-              </h3>
-              <p className="text-xs sm:text-sm text-[#5C5A54] font-sans leading-relaxed">
-                Rapid physical prototypes from technical packs or digital CADs. Fit corrections, size grading from UK 6 to 22 / US 2 to 18, and pre-production approval samples.
-              </p>
-            </div>
-
-            {/* Capability 2 */}
-            <div className="p-8 bg-[#FEFCF8] border border-[#35332F]/10 space-y-4 hover:border-[#A18A73] transition-colors">
-              <div className="w-12 h-12 bg-[#F5F1E9] flex items-center justify-center text-[#70745C]">
-                <Layers className="w-6 h-6" />
-              </div>
-              <h3 className="font-serif text-2xl text-[#35332F] font-normal">
-                Ethical Fabric Sourcing
-              </h3>
-              <p className="text-xs sm:text-sm text-[#5C5A54] font-sans leading-relaxed">
-                Direct access to Indian mill-spun and hand-spun weaves: organic cotton cambric, mulmul, flax linen, poplins, khadi, and sustainable viscose blends.
-              </p>
-            </div>
-
-            {/* Capability 3 */}
-            <div className="p-8 bg-[#FEFCF8] border border-[#35332F]/10 space-y-4 hover:border-[#A18A73] transition-colors">
-              <div className="w-12 h-12 bg-[#F5F1E9] flex items-center justify-center text-[#70745C]">
-                <Sparkles className="w-6 h-6" />
-              </div>
-              <h3 className="font-serif text-2xl text-[#35332F] font-normal">
-                Artisanal Techniques
-              </h3>
-              <p className="text-xs sm:text-sm text-[#5C5A54] font-sans leading-relaxed">
-                Master craftsmen specializing in carved wooden block printing (Sanganeri, Bagru, Dabu), kantha linear quilting, pin-tucking, and delicate thread embroidery.
-              </p>
-            </div>
-
-            {/* Capability 4 */}
-            <div className="p-8 bg-[#FEFCF8] border border-[#35332F]/10 space-y-4 hover:border-[#A18A73] transition-colors">
-              <div className="w-12 h-12 bg-[#F5F1E9] flex items-center justify-center text-[#70745C]">
-                <ShieldCheck className="w-6 h-6" />
-              </div>
-              <h3 className="font-serif text-2xl text-[#35332F] font-normal">
-                Rigorous Quality Assurance
-              </h3>
-              <p className="text-xs sm:text-sm text-[#5C5A54] font-sans leading-relaxed">
-                AQL 2.5 standard inspections covering stitch tension, measurement tolerances, colorfastness rub tests, shrinkage testing, and needle detection.
-              </p>
-            </div>
-
-            {/* Capability 5 */}
-            <div className="p-8 bg-[#FEFCF8] border border-[#35332F]/10 space-y-4 hover:border-[#A18A73] transition-colors">
-              <div className="w-12 h-12 bg-[#F5F1E9] flex items-center justify-center text-[#70745C]">
-                <Compass className="w-6 h-6" />
-              </div>
-              <h3 className="font-serif text-2xl text-[#35332F] font-normal">
-                Private Label Customization
-              </h3>
-              <p className="text-xs sm:text-sm text-[#5C5A54] font-sans leading-relaxed">
-                Woven neck labels, recycled swing tags, organic cotton care labels, branded polybags, custom barcoding, and bespoke trim sourcing.
-              </p>
-            </div>
-
-            {/* Capability 6 */}
-            <div className="p-8 bg-[#FEFCF8] border border-[#35332F]/10 space-y-4 hover:border-[#A18A73] transition-colors">
-              <div className="w-12 h-12 bg-[#F5F1E9] flex items-center justify-center text-[#70745C]">
-                <Globe className="w-6 h-6" />
-              </div>
-              <h3 className="font-serif text-2xl text-[#35332F] font-normal">
-                Export & Freight Coordination
-              </h3>
-              <p className="text-xs sm:text-sm text-[#5C5A54] font-sans leading-relaxed">
-                FOB / CIF / DDP export documentation, customs clearance assistance, air express shipping (DHL/FedEx) or sea container consolidation from Indian ports.
-              </p>
-            </div>
+            ))}
           </div>
 
           <div className="mt-12 text-center">
             <Link
               href="/capabilities"
-              className="inline-flex items-center gap-2 bg-[#35332F] text-[#F5F1E9] px-8 py-3.5 text-xs font-semibold tracking-[0.2em] uppercase hover:bg-[#5C5A54] transition-colors"
+              className="inline-flex items-center gap-2 border border-[#35332F] px-8 py-3.5 text-xs font-semibold tracking-[0.2em] uppercase text-[#35332F] hover:bg-[#35332F] hover:text-white transition-colors"
             >
               <span>Explore Detailed Capabilities</span>
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
         </div>
       </section>
 
       {/* ========================================================
-          SECTION 5: CRAFTSMANSHIP
+          FULL-WIDTH STATEMENT BANNER
       ======================================================== */}
-      <section className="py-24 sm:py-32 bg-[#35332F] text-[#F5F1E9]">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            {/* Visual Mosaic */}
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-4">
-                <img
-                  src="https://images.unsplash.com/photo-1609357605129-26f69add5d6e?auto=format&fit=crop&q=80&w=800"
-                  alt="Traditional Woodblock Printing"
-                  className="w-full aspect-[3/4] object-cover"
-                />
-                <img
-                  src="https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&q=80&w=800"
-                  alt="Quilted Cotton Texture"
-                  className="w-full aspect-[4/3] object-cover"
-                />
-              </div>
-              <div className="space-y-4 pt-8">
-                <img
-                  src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&q=80&w=800"
-                  alt="Pure Linen Weave"
-                  className="w-full aspect-[4/3] object-cover"
-                />
-                <img
-                  src="https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&q=80&w=800"
-                  alt="Handcrafted Garment Construction"
-                  className="w-full aspect-[3/4] object-cover"
-                />
-              </div>
-            </div>
-
-            {/* Storytelling Text */}
-            <div className="space-y-6">
-              <span className="text-xs tracking-[0.25em] uppercase text-[#D8C7B1] font-sans font-medium">
-                Textile Artistry & Construction
-              </span>
-              <h2 className="font-serif text-3xl sm:text-5xl font-light text-white leading-tight">
-                Honoring Indian Craftsmanship with Modern Industrial Precision.
-              </h2>
-              <div className="w-16 h-[1px] bg-[#A18A73]" />
-
-              <p className="text-sm sm:text-base text-[#D8C7B1]/85 font-sans leading-relaxed">
-                True luxury in garment manufacturing lies in texture, breathability, and the hand of the maker. At Rudraksh, we specialize in marrying centuries-old hand-block printing techniques from Rajasthan with precision-engineered sewing lines.
-              </p>
-
-              <div className="space-y-4 pt-2">
-                <div className="flex gap-4">
-                  <div className="w-6 h-6 rounded-full border border-[#D8C7B1]/40 flex items-center justify-center shrink-0 text-[#D8C7B1] text-xs">
-                    1
-                  </div>
-                  <div>
-                    <h4 className="font-serif text-lg text-white">Hand-Carved Teakwood Blocks</h4>
-                    <p className="text-xs text-[#D8C7B1]/75 font-sans mt-0.5">
-                      Each floral or geometric print is struck by hand, producing organic variations that machine rollers cannot replicate.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex gap-4">
-                  <div className="w-6 h-6 rounded-full border border-[#D8C7B1]/40 flex items-center justify-center shrink-0 text-[#D8C7B1] text-xs">
-                    2
-                  </div>
-                  <div>
-                    <h4 className="font-serif text-lg text-white">Artisanal Kantha & Straight Quilting</h4>
-                    <p className="text-xs text-[#D8C7B1]/75 font-sans mt-0.5">
-                      Natural cotton batting sandwiched between twin layers of breathable cotton, producing lightweight outerwear for trans-seasonal layering.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex gap-4">
-                  <div className="w-6 h-6 rounded-full border border-[#D8C7B1]/40 flex items-center justify-center shrink-0 text-[#D8C7B1] text-xs">
-                    3
-                  </div>
-                  <div>
-                    <h4 className="font-serif text-lg text-white">Vegetable & Low-Impact AZO-Free Dyes</h4>
-                    <p className="text-xs text-[#D8C7B1]/75 font-sans mt-0.5">
-                      Committed to export dye safety standards, ensuring colorfastness, gentle skin contact, and reduced environmental footprint.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="pt-4">
-                <Link
-                  href="/craftsmanship"
-                  className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.2em] uppercase text-[#D8C7B1] border-b border-[#D8C7B1] pb-1 hover:text-white hover:border-white transition-colors"
-                >
-                  <span>Explore Our Craftsmanship Guide</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-            </div>
-          </div>
+      <section className="py-24 sm:py-32 bg-[#35332F] text-[#F5F1E9] text-center px-6 border-b border-white/10">
+        <div className="max-w-4xl mx-auto space-y-6">
+          <span className="text-xs sm:text-sm tracking-[0.28em] uppercase text-[#D8C7B1] font-sans font-medium block">
+            NOT JUST WHAT WE MAKE. HOW WE MAKE YOU FEEL.
+          </span>
+          <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-light text-white leading-tight">
+            Rooted in craft. Open to the world.
+          </h2>
         </div>
       </section>
 
       {/* ========================================================
-          SECTION 6: FEATURED COLLECTION
+          06 / SELECTED PERSPECTIVES (STUDIES IN SILHOUETTE)
       ======================================================== */}
-      <section className="py-24 sm:py-32 bg-[#F5F1E9]">
+      <section className="py-24 sm:py-36 bg-[#F5F1E9] border-b border-[#35332F]/10">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-            <div className="max-w-xl space-y-3">
-              <span className="text-xs tracking-[0.25em] uppercase text-[#70745C] font-sans font-semibold">
-                Curated Previews
-              </span>
-              <h2 className="font-serif text-3xl sm:text-5xl font-light text-[#35332F] leading-tight">
-                Featured Sample Silhouettes
-              </h2>
-              <p className="text-sm text-[#5C5A54] font-sans">
-                A preview of sample garments developed for international buyers. For full technical tech packs and complete line access, request private showroom credentials.
-              </p>
-            </div>
-            <Link
-              href="/catalogue-request"
-              className="inline-flex items-center gap-2 bg-[#35332F] text-[#F5F1E9] px-6 py-3 text-xs font-semibold tracking-[0.2em] uppercase hover:bg-[#5C5A54] transition-colors shrink-0"
-            >
-              <span>Unlock Full Catalogue</span>
-              <ArrowUpRight className="w-4 h-4" />
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {featuredProducts.slice(0, 4).map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ========================================================
-          SECTION 7: OUR PROCESS
-      ======================================================== */}
-      <section className="py-24 bg-[#EFE9DF] border-y border-[#35332F]/10">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
-            <span className="text-xs tracking-[0.25em] uppercase text-[#70745C] font-sans font-semibold">
-              Predictable Delivery
+          {/* Header */}
+          <div className="space-y-3 max-w-2xl mb-16">
+            <span className="text-xs uppercase tracking-[0.25em] text-[#70745C] font-sans font-medium">
+              06 / SELECTED PERSPECTIVES
             </span>
-            <h2 className="font-serif text-3xl sm:text-4xl font-light text-[#35332F]">
-              The 7-Stage Manufacturing Process
+            <h2 className="font-serif text-3xl sm:text-5xl font-light text-[#35332F] leading-tight">
+              Studies in silhouette.
             </h2>
-            <p className="text-xs sm:text-sm text-[#5C5A54] font-sans">
-              Structured workflow ensuring design fidelity, fit accuracy, and punctual vessel/flight dispatch.
+            <p className="text-xs sm:text-sm text-[#7A6555] font-sans">
+              An illustrative preview of the world we’re building. Not a live product catalogue.
             </p>
           </div>
 
-          {/* Process Timeline Flow */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
-            {[
-              { step: '01', title: 'Concept & Brief', desc: 'Tech packs, moodboards or reference samples review' },
-              { step: '02', title: 'Fabric Sourcing', desc: 'Mill lab dips, yarn swatches & organic sourcing' },
-              { step: '03', title: 'Sampling & Fit', desc: 'Master proto cutting, grading & fit approvals' },
-              { step: '04', title: 'Production', desc: 'Batch printing, precision cutting & line assembly' },
-              { step: '05', title: 'Quality Control', desc: 'AQL 2.5 inline & end-of-line audits' },
-              { step: '06', title: 'Custom Packaging', desc: 'Branded labelling, barcode tags & poly-bagging' },
-              { step: '07', title: 'Global Export', desc: 'Air freight or sea container customs clearance' },
-            ].map((p, idx) => (
-              <div
-                key={p.step}
-                className="bg-[#FEFCF8] p-5 border border-[#35332F]/10 flex flex-col justify-between space-y-3"
-              >
-                <div>
-                  <span className="text-xs font-serif font-bold text-[#A18A73] block">{p.step}</span>
-                  <h4 className="font-serif text-lg text-[#35332F] font-normal mt-1 leading-snug">{p.title}</h4>
+          {/* Three Large Vertical Portrait Cards with Badges matching Framer */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Card 1 */}
+            <div className="space-y-4 group">
+              <div className="relative aspect-[3/4] overflow-hidden bg-[#35332F]/5 border border-[#35332F]/10">
+                <img
+                  src="https://framerusercontent.com/images/o1jxzf1wGB5SZZe8rNh5GgOnZg.png"
+                  alt="The printed silhouette"
+                  className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                />
+                <div className="absolute top-4 right-4 bg-[#F5F1E9]/95 backdrop-blur-xs px-2.5 py-1 text-[9px] tracking-[0.2em] uppercase font-sans font-semibold text-[#35332F] border border-[#35332F]/10">
+                  ILLUSTRATIVE PREVIEW
                 </div>
-                <p className="text-[11px] text-[#5C5A54] font-sans leading-relaxed">{p.desc}</p>
               </div>
-            ))}
+              <h3 className="font-serif text-2xl text-[#35332F] font-light">
+                The printed silhouette
+              </h3>
+            </div>
+
+            {/* Card 2 */}
+            <div className="space-y-4 group">
+              <div className="relative aspect-[3/4] overflow-hidden bg-[#35332F]/5 border border-[#35332F]/10">
+                <img
+                  src="https://framerusercontent.com/images/TBs9biwNrC8Nk9Ej338Fh4NEvns.png"
+                  alt="The relaxed ensemble"
+                  className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                />
+                <div className="absolute top-4 right-4 bg-[#F5F1E9]/95 backdrop-blur-xs px-2.5 py-1 text-[9px] tracking-[0.2em] uppercase font-sans font-semibold text-[#35332F] border border-[#35332F]/10">
+                  ILLUSTRATIVE PREVIEW
+                </div>
+              </div>
+              <h3 className="font-serif text-2xl text-[#35332F] font-light">
+                The relaxed ensemble
+              </h3>
+            </div>
+
+            {/* Card 3 */}
+            <div className="space-y-4 group">
+              <div className="relative aspect-[3/4] overflow-hidden bg-[#35332F]/5 border border-[#35332F]/10">
+                <img
+                  src="https://framerusercontent.com/images/fAOiTgdkUZ1vqHW95kWixB2igs.png"
+                  alt="The quilted layer"
+                  className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                />
+                <div className="absolute top-4 right-4 bg-[#F5F1E9]/95 backdrop-blur-xs px-2.5 py-1 text-[9px] tracking-[0.2em] uppercase font-sans font-semibold text-[#35332F] border border-[#35332F]/10">
+                  ILLUSTRATIVE PREVIEW
+                </div>
+              </div>
+              <h3 className="font-serif text-2xl text-[#35332F] font-light">
+                The quilted layer
+              </h3>
+            </div>
+          </div>
+
+          <div className="mt-16 text-center">
+            <Link
+              href="/collections"
+              className="inline-flex items-center gap-2 border border-[#35332F] bg-[#35332F] text-[#F5F1E9] px-8 py-3.5 text-xs font-semibold tracking-[0.2em] uppercase hover:bg-[#5C5A54] transition-colors"
+            >
+              <span>EXPLORE THE PUBLIC SHOWROOM</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
+            </Link>
           </div>
         </div>
       </section>
 
       {/* ========================================================
-          SECTION 8: WHY RUDRAKSH
+          07 / OUR PHILOSOPHY
       ======================================================== */}
-      <section className="py-24 sm:py-32 bg-[#F5F1E9]">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-5 space-y-6">
-              <span className="text-xs tracking-[0.25em] uppercase text-[#70745C] font-sans font-semibold">
-                Partnership Value
-              </span>
-              <h2 className="font-serif text-3xl sm:text-5xl font-light text-[#35332F] leading-tight">
-                Why International Fashion Buyers Choose Us.
-              </h2>
-              <p className="text-sm sm:text-base text-[#5C5A54] font-sans leading-relaxed">
-                We understand the commercial realities of fashion labels: accurate grading, punctual delivery windows, reliable fabric colorfastness, and transparent communication.
-              </p>
-              <div className="pt-2">
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-2 bg-[#35332F] text-[#F5F1E9] px-7 py-3.5 text-xs font-semibold tracking-[0.2em] uppercase hover:bg-[#5C5A54] transition-colors"
-                >
-                  <span>Start A Partnership Discussion</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-            </div>
-
-            <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div className="p-6 bg-[#FEFCF8] border border-[#35332F]/10 space-y-3">
-                <CheckCircle2 className="w-5 h-5 text-[#70745C]" />
-                <h4 className="font-serif text-xl text-[#35332F]">Low MOQ Flexibility</h4>
-                <p className="text-xs text-[#5C5A54] leading-relaxed">
-                  Supportive minimum order quantities (from 60–100 pieces per style) allowing independent brands to test new collections without prohibitive inventory burden.
-                </p>
-              </div>
-
-              <div className="p-6 bg-[#FEFCF8] border border-[#35332F]/10 space-y-3">
-                <CheckCircle2 className="w-5 h-5 text-[#70745C]" />
-                <h4 className="font-serif text-xl text-[#35332F]">Direct Mill Sourcing</h4>
-                <p className="text-xs text-[#5C5A54] leading-relaxed">
-                  Direct relationships with textile weavers across India, eliminating intermediary markups and ensuring genuine yarn compositions.
-                </p>
-              </div>
-
-              <div className="p-6 bg-[#FEFCF8] border border-[#35332F]/10 space-y-3">
-                <CheckCircle2 className="w-5 h-5 text-[#70745C]" />
-                <h4 className="font-serif text-xl text-[#35332F]">Private Label Customization</h4>
-                <p className="text-xs text-[#5C5A54] leading-relaxed">
-                  Complete white-label execution: branded neck tags, wash care labels, custom packaging, hang tags, and custom embroidery.
-                </p>
-              </div>
-
-              <div className="p-6 bg-[#FEFCF8] border border-[#35332F]/10 space-y-3">
-                <CheckCircle2 className="w-5 h-5 text-[#70745C]" />
-                <h4 className="font-serif text-xl text-[#35332F]">Export Compliance</h4>
-                <p className="text-xs text-[#5C5A54] leading-relaxed">
-                  Strict adherence to international textile safety, AZO-free dye standards, ethical worker conditions, and accurate customs HS code classification.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ========================================================
-          SECTION 9: PRIVATE CATALOGUE ACCESS CTA
-      ======================================================== */}
-      <section className="py-24 bg-[#35332F] text-[#F5F1E9] relative overflow-hidden">
-        <div className="max-w-5xl mx-auto px-6 sm:px-8 text-center space-y-8 relative z-10">
-          <span className="text-xs tracking-[0.25em] uppercase text-[#D8C7B1] font-sans font-medium">
-            Confidential B2B Showroom
+      <section className="py-24 sm:py-36 bg-[#EAE2D6]/40 border-b border-[#35332F]/10">
+        <div className="max-w-4xl mx-auto px-6 sm:px-8 text-center space-y-6">
+          <span className="text-xs uppercase tracking-[0.25em] text-[#70745C] font-sans font-medium block">
+            07 / OUR PHILOSOPHY
           </span>
-          <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-light text-white leading-tight text-balanced">
-            Request Verified Access to Our Complete Digital Garment Catalogue.
+          <h2 className="font-serif text-3xl sm:text-5xl font-light text-[#35332F] leading-tight">
+            Thoughtfully made. Quietly expressive. Unmistakably individual.
           </h2>
-          <p className="max-w-2xl mx-auto text-sm sm:text-base text-[#D8C7B1]/85 font-sans leading-relaxed text-balanced">
-            To protect our client brand partnerships and proprietary design patterns, our complete seasonal line sheets, fabric swatches, and wholesale quotation tiers are reserved for verified fashion buyers.
+          <p className="text-base sm:text-lg text-[#5C5A54] font-sans leading-relaxed max-w-2xl mx-auto pt-2">
+            We believe the most meaningful clothing holds two things in balance: the hand of the maker and the life of the wearer.
           </p>
+        </div>
+      </section>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+      {/* ========================================================
+          08 / A PRIVATE VIEW (CATALOGUE CTA)
+      ======================================================== */}
+      <section className="py-24 sm:py-36 bg-[#F5F1E9] border-b border-[#35332F]/10">
+        <div className="max-w-4xl mx-auto px-6 sm:px-8 text-center space-y-6">
+          <span className="text-xs uppercase tracking-[0.25em] text-[#70745C] font-sans font-medium block">
+            08 / A PRIVATE VIEW
+          </span>
+          <h2 className="font-serif text-3xl sm:text-5xl font-light text-[#35332F] leading-tight">
+            Discover what we’re creating.
+          </h2>
+          <p className="text-base text-[#5C5A54] font-sans leading-relaxed max-w-xl mx-auto">
+            Explore our women’s apparel collections and discover the possibilities of working with Rudraksh.
+          </p>
+          <div className="pt-4">
             <Link
               href="/catalogue-request"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#D8C7B1] text-[#35332F] px-9 py-4 text-xs font-semibold tracking-[0.2em] uppercase hover:bg-white transition-all shadow-md"
+              className="inline-flex items-center gap-2 border border-[#A18A73] bg-[#35332F] text-[#F5F1E9] px-9 py-4 text-xs font-semibold tracking-[0.22em] uppercase hover:bg-[#5C5A54] transition-all shadow-sm"
             >
-              <span>Submit Access Application</span>
+              <span>REQUEST THE PRIVATE CATALOGUE</span>
               <ArrowUpRight className="w-4 h-4" />
             </Link>
-            <Link
-              href="/contact"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-white/30 text-white px-9 py-4 text-xs font-medium tracking-[0.2em] uppercase hover:bg-white/10 transition-colors"
-            >
-              <span>Speak to Sourcing Director</span>
-            </Link>
           </div>
-
-          <p className="text-[11px] text-[#D8C7B1]/60 tracking-wider font-sans">
-            Verification typically processed within 24 hours. Instant automated access available for verified business emails.
-          </p>
         </div>
       </section>
     </div>

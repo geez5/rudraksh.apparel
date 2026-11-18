@@ -63,7 +63,7 @@ export default function CraftsmanshipPage() {
             <div className="lg:col-span-6">
               <div className="aspect-[4/3] sm:aspect-[16/11] overflow-hidden bg-[#35332F]/5">
                 <img
-                  src="https://images.unsplash.com/photo-1609357605129-26f69add5d6e?auto=format&fit=crop&q=80&w=1200"
+                  src="https://framerusercontent.com/images/R4nHwZ5IckVSyOzyvKHubRqgpg.png"
                   alt="Carved Wooden Printing Block on Cambric Cotton"
                   className="w-full h-full object-cover"
                 />
@@ -107,7 +107,7 @@ export default function CraftsmanshipPage() {
             <div className="lg:col-span-6 lg:order-1">
               <div className="aspect-[4/3] sm:aspect-[16/11] overflow-hidden bg-[#35332F]/5">
                 <img
-                  src="https://images.unsplash.com/photo-1548883354-7622d03aca27?auto=format&fit=crop&q=80&w=1200"
+                  src="https://framerusercontent.com/images/fAOiTgdkUZ1vqHW95kWixB2igs.png"
                   alt="Quilted Cotton Jacket with Contrast Piping"
                   className="w-full h-full object-cover"
                 />

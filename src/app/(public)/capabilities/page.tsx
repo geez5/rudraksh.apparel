@@ -23,7 +23,7 @@ export default function CapabilitiesPage() {
         'Size grading (UK 6–22 / US 2–18 / EU 34–50)',
         'Fabric yield optimization and consumption planning',
       ],
-      image: 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&q=80&w=900',
+      image: 'https://framerusercontent.com/images/X0GvzMI58bdKA5HXDxypymct4rg.png',
     },
     {
       id: 'fabric-sourcing',
@@ -38,7 +38,7 @@ export default function CapabilitiesPage() {
         'Structured cotton poplins, twills, and dobby textures',
         'AZO-free color matching, Pantone TPX lab dips, and shrinkage pre-wash tests',
       ],
-      image: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&q=80&w=900',
+      image: 'https://framerusercontent.com/images/R4nHwZ5IckVSyOzyvKHubRqgpg.png',
     },
     {
       id: 'sampling',
@@ -53,7 +53,7 @@ export default function CapabilitiesPage() {
         'Embellishment and print strike-offs for color approval',
         'Technical feedback on seam durability and wash behavior',
       ],
-      image: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&q=80&w=900',
+      image: 'https://framerusercontent.com/images/TBs9biwNrC8Nk9Ej338Fh4NEvns.png',
     },
     {
       id: 'production',
@@ -68,7 +68,7 @@ export default function CapabilitiesPage() {
         'Specialised machinery for pin-tucking, flatlock, and blind hem finishing',
         'Dedicated line supervision for print motif matching across plackets and seams',
       ],
-      image: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=900',
+      image: 'https://framerusercontent.com/images/0Z15NAkSrmq92bFNnjOf7OTouws.png',
     },
     {
       id: 'quality-assurance',
@@ -83,7 +83,7 @@ export default function CapabilitiesPage() {
         'Wet & dry crocking (rubbing) fastness and wash-care testing',
         'Calibrated 9-point needle detection before boxing',
       ],
-      image: 'https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&q=80&w=900',
+      image: 'https://framerusercontent.com/images/o1jxzf1wGB5SZZe8rNh5GgOnZg.png',
     },
     {
       id: 'packaging-export',
@@ -98,7 +98,7 @@ export default function CapabilitiesPage() {
         'FOB, CIF, or DDP shipping terms coordinated through DHL, FedEx or Ocean Lines',
         'Complete export documentation: Certificate of Origin, Commercial Invoice & Packing Lists',
       ],
-      image: 'https://images.unsplash.com/photo-1548883354-7622d03aca27?auto=format&fit=crop&q=80&w=900',
+      image: 'https://framerusercontent.com/images/fAOiTgdkUZ1vqHW95kWixB2igs.png',
     },
   ]
 
