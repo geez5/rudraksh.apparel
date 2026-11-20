@@ -6,12 +6,13 @@ import { usePathname } from 'next/navigation'
 import { Menu, X, ArrowUpRight } from 'lucide-react'
 
 const navLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/about', label: 'About' },
-  { href: '/capabilities', label: 'Capabilities' },
-  { href: '/collections', label: 'Collections' },
-  { href: '/craftsmanship', label: 'Craftsmanship' },
-  { href: '/contact', label: 'Contact' },
+  { href: '/', label: 'HOME' },
+  { href: '/about', label: 'ABOUT US' },
+  { href: '/collections', label: 'COLLECTIONS' },
+  { href: '/capabilities', label: 'MANUFACTURING' },
+  { href: '/craftsmanship', label: 'PRINTS & TEXTILES' },
+  { href: '/#sustainability', label: 'SUSTAINABILITY' },
+  { href: '/contact', label: 'CONTACT' },
 ]
 
 export function Header() {
@@ -21,9 +22,9 @@ export function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
+      setIsScrolled(window.scrollY > 25)
     }
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
@@ -31,97 +32,155 @@ export function Header() {
     setMobileMenuOpen(false)
   }, [pathname])
 
+  // Prevent background scrolling when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'unset'
+    }
+    return () => {
+      document.body.style.overflow = 'unset'
+    }
+  }, [mobileMenuOpen])
+
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-[#F5F1E9]/95 backdrop-blur-md border-b border-[#35332F]/10 py-3.5 shadow-xs'
-          : 'bg-[#F5F1E9]/85 backdrop-blur-xs py-5'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex items-center justify-between">
-        {/* Brand Logo - Exact Cormorant 30px tracking 0.04em */}
-        <Link
-          href="/"
-          className="group flex flex-col focus:outline-none"
-        >
-          <span className="font-serif text-2xl sm:text-[28px] tracking-[0.05em] text-[#35332F] font-normal uppercase">
-            RUDRAKSH
-          </span>
-        </Link>
-
-        {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center space-x-7 lg:space-x-8 text-[11px] tracking-[0.16em] uppercase font-sans font-medium text-[#35332F]">
-          {navLinks.map((link) => {
-            const isActive = pathname === link.href
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`transition-colors duration-200 py-1 ${
-                  isActive
-                    ? 'text-[#35332F] font-semibold border-b border-[#35332F]'
-                    : 'text-[#35332F]/75 hover:text-[#35332F]'
-                }`}
-              >
-                {link.label}
-              </Link>
-            )
-          })}
-        </nav>
-
-        {/* Desktop Catalogue Access CTA matching Framer: 1px border rgb(161, 138, 115) */}
-        <div className="hidden lg:flex items-center space-x-4">
+    <>
+      <header
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
+          isScrolled
+            ? 'bg-[#F5F1E9]/95 backdrop-blur-md border-b border-[#35332F]/10 py-4 shadow-[0_2px_15px_-3px_rgba(53,51,47,0.05)]'
+            : 'bg-[#F5F1E9]/80 backdrop-blur-xs py-6 border-b border-[#35332F]/5'
+        }`}
+      >
+        <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-14 flex items-center justify-between">
+          {/* Brand Mark */}
           <Link
-            href="/catalogue-request"
-            className="inline-flex items-center gap-2 border border-[#A18A73] bg-transparent text-[#35332F] px-5 py-2.5 text-[10px] sm:text-[11px] font-semibold tracking-[0.2em] uppercase transition-all duration-300 hover:bg-[#35332F] hover:text-[#F5F1E9] hover:border-[#35332F]"
+            href="/"
+            className="group flex flex-col focus:outline-none"
           >
-            <span>REQUEST CATALOGUE</span>
-            <ArrowUpRight className="w-3.5 h-3.5" />
+            <span className="font-serif text-2xl sm:text-[28px] tracking-[0.14em] text-[#35332F] font-light uppercase transition-opacity hover:opacity-85">
+              RUDRAKSH
+            </span>
+            <span className="text-[8px] tracking-[0.3em] uppercase text-[#777B65] font-sans font-medium -mt-1 hidden sm:block">
+              Apparel Manufacturing & Export
+            </span>
           </Link>
-        </div>
 
-        {/* Mobile menu hamburger */}
-        <button
-          type="button"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden text-[#35332F] p-2 focus:outline-none"
-          aria-expanded={mobileMenuOpen}
-          aria-label="Toggle menu"
-        >
-          {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
-      </div>
-
-      {/* Mobile Drawer */}
-      {mobileMenuOpen && (
-        <div className="md:hidden bg-[#F5F1E9] border-b border-[#35332F]/10 px-6 pt-4 pb-8 space-y-4 shadow-lg animate-in fade-in duration-200">
-          <nav className="flex flex-col space-y-3 pt-2">
+          {/* Desktop Navigation Links */}
+          <nav className="hidden xl:flex items-center space-x-7 text-[11px] tracking-[0.2em] font-sans font-medium text-[#35332F]">
             {navLinks.map((link) => {
               const isActive = pathname === link.href
               return (
                 <Link
-                  key={link.href}
+                  key={link.label}
                   href={link.href}
-                  className={`text-xs tracking-[0.18em] uppercase font-sans py-2 border-b border-[#35332F]/5 ${
-                    isActive ? 'font-semibold text-[#35332F]' : 'text-[#35332F]/70'
+                  className={`transition-all duration-300 py-1.5 relative group ${
+                    isActive
+                      ? 'text-[#35332F] font-semibold'
+                      : 'text-[#35332F]/70 hover:text-[#35332F]'
                   }`}
                 >
                   {link.label}
+                  <span
+                    className={`absolute bottom-0 left-0 w-full h-[1px] bg-[#35332F] transition-transform duration-300 origin-left ${
+                      isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+                    }`}
+                  />
                 </Link>
               )
             })}
           </nav>
-          <div className="pt-2 flex flex-col space-y-2">
+
+          {/* Action CTAs */}
+          <div className="hidden lg:flex items-center space-x-4">
             <Link
               href="/catalogue-request"
-              className="text-center text-xs tracking-[0.2em] uppercase border border-[#A18A73] bg-[#35332F] text-[#F5F1E9] py-3 font-semibold"
+              className="text-[11px] tracking-[0.2em] text-[#35332F]/80 hover:text-[#35332F] font-sans uppercase transition-colors px-3 py-2"
+            >
+              Showroom Access
+            </Link>
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 bg-[#35332F] text-[#F5F1E9] px-6 py-2.5 text-[10px] sm:text-[11px] font-semibold tracking-[0.22em] uppercase transition-all duration-300 hover:bg-[#A76C50] hover:text-white"
+            >
+              <span>PARTNER WITH US</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+
+          {/* Mobile menu hamburger toggle */}
+          <button
+            type="button"
+            onClick={() => setMobileMenuOpen(true)}
+            className="xl:hidden text-[#35332F] p-2 focus:outline-none hover:text-[#A76C50] transition-colors"
+            aria-label="Open menu"
+          >
+            <Menu className="w-6 h-6 stroke-[1.5]" />
+          </button>
+        </div>
+      </header>
+
+      {/* Full-screen Mobile Navigation Overlay */}
+      {mobileMenuOpen && (
+        <div className="fixed inset-0 z-50 bg-[#F5F1E9] flex flex-col justify-between p-8 sm:p-12 animate-in fade-in duration-300 overflow-y-auto">
+          {/* Header inside mobile menu */}
+          <div className="flex items-center justify-between border-b border-[#35332F]/10 pb-6">
+            <Link
+              href="/"
+              onClick={() => setMobileMenuOpen(false)}
+              className="font-serif text-2xl tracking-[0.14em] text-[#35332F] font-light uppercase"
+            >
+              RUDRAKSH
+            </Link>
+            <button
+              type="button"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-[#35332F] p-2 hover:text-[#A76C50] transition-colors"
+              aria-label="Close menu"
+            >
+              <X className="w-7 h-7 stroke-[1.5]" />
+            </button>
+          </div>
+
+          {/* Mobile Links */}
+          <nav className="flex flex-col space-y-6 py-10">
+            {navLinks.map((link, idx) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className="group flex items-baseline justify-between py-2 border-b border-[#35332F]/5"
+              >
+                <span className="font-serif text-3xl sm:text-4xl font-light text-[#35332F] group-hover:text-[#A76C50] group-hover:italic transition-all">
+                  {link.label}
+                </span>
+                <span className="text-xs font-mono text-[#777B65] tracking-widest">
+                  0{idx + 1}
+                </span>
+              </Link>
+            ))}
+          </nav>
+
+          {/* Mobile Menu Footer CTAs */}
+          <div className="pt-6 border-t border-[#35332F]/10 flex flex-col sm:flex-row gap-4">
+            <Link
+              href="/contact"
+              onClick={() => setMobileMenuOpen(false)}
+              className="w-full text-center bg-[#35332F] text-[#F5F1E9] py-4 text-xs font-semibold tracking-[0.22em] uppercase hover:bg-[#A76C50] transition-colors"
+            >
+              PARTNER WITH US
+            </Link>
+            <Link
+              href="/catalogue-request"
+              onClick={() => setMobileMenuOpen(false)}
+              className="w-full text-center border border-[#35332F] text-[#35332F] py-4 text-xs font-medium tracking-[0.22em] uppercase hover:bg-[#35332F] hover:text-[#F5F1E9] transition-colors"
             >
               REQUEST CATALOGUE
             </Link>
           </div>
         </div>
       )}
-    </header>
+    </>
   )
 }

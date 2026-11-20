@@ -5,17 +5,16 @@
 @theme {
   /* Colors */
   --color-ivory: #F5F1E9;
-  --color-cream: #FEFCF8;
+  --color-cream: #FAF6EF;
+  --color-espresso: #35332F;
+  --color-charcoal: #292825;
+  --color-charcoal-light: #4A4742;
+  --color-beige: #E7DFD2;
   --color-sand: #D8C7B1;
   --color-taupe: #A18A73;
-  --color-taupe-light: #C4AC96;
-  --color-taupe-dark: #7A6555;
-  --color-charcoal: #35332F;
-  --color-charcoal-light: #5C5A54;
-  --color-charcoal-lighter: #8A8880;
-  --color-olive: #70745C;
-  --color-olive-light: #8C9074;
-  --color-olive-dark: #545740;
+  --color-olive: #777B65;
+  --color-terracotta: #A76C50;
+  --color-terracotta-dark: #8C543B;
 
   /* Fonts */
   --font-serif: 'Cormorant Garamond', Georgia, serif;
@@ -117,12 +116,12 @@
 
   .container-site {
     max-width: var(--max-width-site);
-    @apply mx-auto section-padding;
+    @apply mx-auto px-6 md:px-12 lg:px-16 xl:px-20;
   }
 
   .container-content {
     max-width: var(--max-width-content);
-    @apply mx-auto section-padding;
+    @apply mx-auto px-6 md:px-12 lg:px-16 xl:px-20;
   }
 }
 
