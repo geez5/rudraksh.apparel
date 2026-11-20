@@ -1,14 +1,12 @@
 import { type NextRequest, NextResponse } from 'next/server'
-import { updateSession } from '@/lib/supabase/proxy'
 
 export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl
-  const { supabaseResponse, user } = await updateSession(request)
 
-  // Protect admin routes
+  // Protect admin routes — only cookie-based session check (no Supabase required)
   if (pathname.startsWith('/admin') && pathname !== '/admin/login') {
     const adminSession = request.cookies.get('rudraksh_admin_session')
-    if (!user && !adminSession) {
+    if (!adminSession) {
       const loginUrl = new URL('/admin/login', request.url)
       loginUrl.searchParams.set('redirect', pathname)
       return NextResponse.redirect(loginUrl)
@@ -17,7 +15,6 @@ export async function proxy(request: NextRequest) {
 
   // Protect catalogue routes
   if (pathname.startsWith('/catalogue')) {
-    // Check access via cookie set during the access grant flow
     const accessToken = request.cookies.get('rudraksh_catalogue_access')
     if (!accessToken) {
       const requestUrl = new URL('/catalogue-request', request.url)
@@ -26,7 +23,7 @@ export async function proxy(request: NextRequest) {
     }
   }
 
-  return supabaseResponse
+  return NextResponse.next()
 }
 
 export const config = {
